@@ -24,11 +24,11 @@ stages {
         steps {
             withCredentials([usernamePassword(
                 credentialsId: 'dockerhub-creds',
-                usernameVariable: 'mersineelakantam',
-                passwordVariable: 'Ammu@9096'
+                usernameVariable: 'DOCKER_USER',
+                passwordVariable: 'DOCKER_PASSWORD'
             )]) {
                 powershell '''
-                    $env:Ammu@9096 | docker login -u $env:mersineelakantam --password-stdin
+                    $env:DOCKER_PASSWORD | docker login -u $env:DOCKER_USER --password-stdin
                     if ($LASTEXITCODE -ne 0) {
                         exit $LASTEXITCODE
                     }
