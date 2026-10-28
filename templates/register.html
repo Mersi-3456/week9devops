@@ -1,0 +1,67 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Register</title>
+
+    <script>
+        function validateForm() {
+            const name =
+                document.getElementById("name").value.trim();
+
+            const password =
+                document.getElementById("password").value;
+
+            const number =
+                document.getElementById("Number").value.trim();
+
+            if (name === "") {
+                alert("Username cannot be empty");
+                return false;
+            }
+
+            if (password === "") {
+                alert("Password cannot be empty");
+                return false;
+            }
+
+            if (password.length < 6) {
+                alert("Password must be at least 6 characters long");
+                return false;
+            }
+
+            if (number === "") {
+                alert("Number cannot be empty");
+                return false;
+            }
+
+            return true;
+        }
+    </script>
+</head>
+
+<body>
+    <h1>Register</h1>
+
+    <form action="/register"
+          method="POST"
+          onsubmit="return validateForm()">
+
+        <label for="name">Name:</label>
+        <input type="text" id="name" name="name" required>
+        <br><br>
+
+        <label for="password">Password:</label>
+        <input type="password" id="password"
+               name="password" required>
+        <br><br>
+
+        <label for="Number">Number:</label>
+        <input type="number" id="Number"
+               name="Number" required>
+        <br><br>
+
+        <input type="submit" id="submit" value="Register">
+    </form>
+</body>
+</html>

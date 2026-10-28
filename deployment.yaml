@@ -1,0 +1,24 @@
+
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: week8-registration
+  labels:
+    app: week8-registration
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: week8-registration
+  template:
+    metadata:
+      labels:
+        app: week8-registration
+    spec:
+      containers:
+        - name: week8-registration
+          image: mersineelakantam/week8-registration:latest
+          imagePullPolicy: Always
+          ports:
+            - containerPort: 5002
+              protocol: TCP
